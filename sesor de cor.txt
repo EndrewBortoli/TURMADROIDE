@@ -1,0 +1,29 @@
+sesor de cor
+
+
+
+int sensorLateralEsquerda = A1;
+int sensorCentralEsquerda = A2;
+int sensorCentralDireita = A3;
+int sensorLateralDireita = A4;
+void setup()
+{
+  pinMode(sensorLateralEsquerda, INPUT);
+  pinMode(sensorCentralEsquerda, INPUT);
+  pinMode(sensorCentralDireita, INPUT);
+  pinMode(sensorLateralDireita, INPUT);
+  Serial.begin(9600);
+}
+
+void loop(){
+  int valorLateralEsquerda = analogRead(sensorLateralEsquerda);
+  int valorCentralEsquerda = analogRead(sensorCentralEsquerda);
+  int valorCentralDireita = analogRead(sensorCentralDireita);
+  int valorLateralDireita = analogRead(sensorLateralDireita);
+  Serial.println(valorLateralEsquerda);
+  Serial.println(valorCentralEsquerda);
+  Serial.println(valorCentralDireita);
+  Serial.println(valorLateralDireita);
+  delay(500);
+  
+}
