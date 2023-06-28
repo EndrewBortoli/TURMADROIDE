@@ -65,7 +65,7 @@ void loop() {
   Serial.println(azulS2);
 
   delay(1000); // Aguarda 1 segundo antes de ler as cores novamente
-}
+}A
 
 void color() {
   // Rotina que lê o valor das cores para o sensor 1

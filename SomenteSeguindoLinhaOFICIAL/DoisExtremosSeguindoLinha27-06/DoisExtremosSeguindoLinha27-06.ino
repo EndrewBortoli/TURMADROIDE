@@ -6,8 +6,8 @@ AF_DCMotor  motor[] = {3,4}; // 0 é Esquerdo e 1 é Direito
 void setup() 
 {
   //Seta a velocidade inicial do motor
-    motor[0].setSpeed(225); // Motor Esquerdo
-    motor[1].setSpeed(225); // Motor Direita
+    motor[0].setSpeed(240); // Motor Esquerdo
+    motor[1].setSpeed(240); // Motor Direita
   Serial.begin(9600); // Chama o Monitor Serial
   pinMode(2, INPUT);
   
