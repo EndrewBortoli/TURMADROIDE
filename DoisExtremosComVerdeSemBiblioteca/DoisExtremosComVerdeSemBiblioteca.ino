@@ -3,18 +3,18 @@
 AF_DCMotor  motor[] = {3,4}; // 0 é Esquerdo e 1 é Direito 
 
 // Pinos de conexão do primeiro sensor TCS320
-const int s0_1 = 52;
-const int s1_1 = 53;
-const int s2_1 = 51;
-const int s3_1 = 49;
+const int s0_1 = 26;
+const int s1_1 = 28;
+const int s2_1 = 31;
+const int s3_1 = 29;
 const int out_1 = 50;
 
 // Pinos de conexão do segundo sensor TCS320
-const int s0_2 = 46;
-const int s1_2 = 47;
-const int s2_2 = 44;
-const int s3_2 = 43;
-const int out_2 = 45;
+const int s0_2 = 40;
+const int s1_2 = 41;
+const int s2_2 = 34;
+const int s3_2 = 37;
+const int out_2 = 39;//
 
 // Definindo as variáveis de cada cor do sesor 1
 int vermelhoS1 = 0;
@@ -63,7 +63,7 @@ void loop()
 
   int leftSensor = analogRead(A15); //sensor esquerdo
   int rightSensor = analogRead(A10); //sensor direito
-  int valorSensor = 200;
+  int valorSensor = 100;
   int valorSensorEsq = 100;
 
   if (leftSensor < valorSensorEsq && rightSensor < valorSensor) { // Seguidor de Linha
@@ -78,9 +78,9 @@ void loop()
   } else if (leftSensor > valorSensorEsq && rightSensor > valorSensor) {
     motor[0].run(FORWARD);
     motor[1].run(FORWARD);
-  } else if (verdeS1 > 100) {
+  } else if (vermelhoS1 > 150 && vermelhoS1 < 190 && azulS1 > 15 && azulS1 < 170 && verdeS1 > 130 && verdeS1 < 180) {
     void EsquerdaVerde();
-  } else if (verdeS2 > 100) {
+  } else if (vermelhoS2 > 150 && vermelhoS2 < 190 && azulS2 > 15 && azulS2 < 170 && verdeS2 > 130 && verdeS2 < 180) {
     void DireitaVerde();
   } else if (verdeS1 > 100 && verdeS2 > 100) {
     void Beco();

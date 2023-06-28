@@ -1,25 +1,26 @@
 // Pinos de conexão do primeiro sensor TCS320
-const int s0_1 = 52;
-const int s1_1 = 53;
-const int s2_1 = 51;
-const int s3_1 = 49;
-const int out_1 = 50;
+const int s0_1 = 26;
+const int s1_1 = 28;
+const int s2_1 = 31;
+const int s3_1 = 29;
+const int out_1 = 27;
 
 // Pinos de conexão do segundo sensor TCS320
-const int s0_2 = 46;
-const int s1_2 = 47;
-const int s2_2 = 44;
-const int s3_2 = 43;
-const int out_2 = 45;
+const int s0_2 = 40;
+const int s1_2 = 41;
+const int s2_2 = 34;
+const int s3_2 = 37;
+const int out_2 = 39;
 
-//Definindo as variaveis de cada cor
-int vermelhoS1 = 0; //Defini um valor incial para a variavel do verde do sensor 1
-int verdeS1 = 0; //Defini um valor inicial para a variavel do verde do sensor 1
-int azulS1 = 0; //Defini um valor inicial para a variavel do verde do sensor 1
+// Definindo as variáveis de cada cor do sensor 1
+int vermelhoS1 = 0;
+int verdeS1 = 0;
+int azulS1 = 0;
 
-int vermelhoS2 = 0; //Defini um valor incial para a variavel do verde do sensor 2
-int verdeS2 = 0; //Defini um valor inicial para a variavel do verde do sensor 2
-int azulS2 = 0; //Defini um valor inicial para a variavel do verde do sensor 2
+// Definindo as variáveis de cada cor do sensor 2
+int vermelhoS2 = 0;
+int verdeS2 = 0;
+int azulS2 = 0;
 
 void setup() {
   // put your setup code here, to run once:
@@ -47,7 +48,7 @@ void setup() {
 void loop() {
   // put your main code here, to run repeatedly:
   color(); // Chama a função para ler as cores dos sensores
-Serial.print("Sensor 1 - ");
+  Serial.print("Sensor 1 - ");
   Serial.print("Vermelho: ");
   Serial.print(vermelhoS1);
   Serial.print(" Verde: ");
@@ -67,28 +68,27 @@ Serial.print("Sensor 1 - ");
 }
 
 void color() {
-  //Rotina que le o valor das cores para o sensor 1
+  // Rotina que lê o valor das cores para o sensor 1
   digitalWrite(s2_1, LOW);
   digitalWrite(s3_1, LOW);
-  //count OUT, pRed, RED
+  // count OUT, pRed, RED
   vermelhoS1 = pulseIn(out_1, digitalRead(out_1) == HIGH ? LOW : HIGH);
   digitalWrite(s3_1, HIGH);
-  //count OUT, pBLUE, BLUE
+  // count OUT, pBLUE, BLUE
   azulS1 = pulseIn(out_1, digitalRead(out_1) == HIGH ? LOW : HIGH);
   digitalWrite(s2_1, HIGH);
-  //count OUT, pGreen, GREEN
+  // count OUT, pGreen, GREEN
   verdeS1 = pulseIn(out_1, digitalRead(out_1) == HIGH ? LOW : HIGH);
 
-  //Rotina que le o valor das cores para o sensor 2
+  // Rotina que lê o valor das cores para o sensor 2
   digitalWrite(s2_2, LOW);
   digitalWrite(s3_2, LOW);
-  //count OUT, pRed, RED
+  // count OUT, pRed, RED
   vermelhoS2 = pulseIn(out_2, digitalRead(out_2) == HIGH ? LOW : HIGH);
   digitalWrite(s3_2, HIGH);
-  //count OUT, pBLUE, BLUE
+  // count OUT, pBLUE, BLUE
   azulS2 = pulseIn(out_2, digitalRead(out_2) == HIGH ? LOW : HIGH);
   digitalWrite(s2_2, HIGH);
-  //count OUT, pGreen, GREEN
+  // count OUT, pGreen, GREEN
   verdeS2 = pulseIn(out_2, digitalRead(out_2) == HIGH ? LOW : HIGH);
-
 }
