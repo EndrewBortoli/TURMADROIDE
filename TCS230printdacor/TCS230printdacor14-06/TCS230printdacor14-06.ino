@@ -46,7 +46,7 @@ void loop() {
   color();
   Serial.print("Sensor 1 - ");
 
-  if (corVermelhoS1 > 25 && corAzulS1 > 28 && corVerdeS1 > 22) {
+  if (corVermelhoS1 > 25 && corVerdeS1 > 25 && corAzulS1 > 25 ) {
     Serial.println("VERDE");
   }
   else {
@@ -55,7 +55,7 @@ void loop() {
   
   Serial.print("Sensor 2 - ");
 
-  if (corVermelhoS2 > 110 && corAzulS2 > 95 && corVerdeS2 > 100) {
+  if (corVermelhoS2 > 110 && corVerdeS2 > 30 && corAzulS2 > 95 ) {
     Serial.println("VERDE");
   }
   else {

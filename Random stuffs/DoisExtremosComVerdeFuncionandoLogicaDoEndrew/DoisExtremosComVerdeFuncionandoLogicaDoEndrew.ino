@@ -32,8 +32,8 @@ void setup() {
   // put your setup code here, to run once:
 
   //Seta a velocidade inicial do motor
-  motorEsquerdo.setSpeed(225); // Motor Esquerdo
-  motorDireito.setSpeed(225); // Motor Direita
+  motorEsquerdo.setSpeed(200); // Motor Esquerdo
+  motorDireito.setSpeed(200); // Motor Direita
   Serial.begin(9600); // Chama o Monitor Serial
   pinMode(2, INPUT);
 
@@ -121,23 +121,6 @@ void direitaVerde(){
   motorEsquerdo.run(BACKWARD);
   motorDireito.run(BACKWARD);
   delay(500);
-  if (leftSensor > valorSensorEsq && rightSensor > valorSensor) {
-  motorEsquerdo.run(FORWARD);
-  motorDireito.run(FORWARD);
-  delay(200);
-  motorEsquerdo.setSpeed(255);
-  motorEsquerdo.run(BACKWARD);
-  motorDireito.run(FORWARD);
-  delay(1000);
-  motorEsquerdo.run(FORWARD);
-  motorDireito.run(FORWARD);
-  delay(300);
-  }else if (leftSensor < valorSensorEsq && rightSensor < valorSensor){
-  delay(1000);
-  motorEsquerdo.run(FORWARD);
-  motorDireito.run(FORWARD);
-  delay(200);
-  }
   
 }
 void esquerdaVerde(){
@@ -148,22 +131,6 @@ void esquerdaVerde(){
   motorEsquerdo.run(BACKWARD);
   motorDireito.run(BACKWARD);
   delay(500);
-  if (leftSensor > valorSensorEsq && rightSensor > valorSensor) {
-  motorEsquerdo.run(FORWARD);
-  motorDireito.run(FORWARD);
-  delay(200);
-  motorEsquerdo.setSpeed(255);
-  motorEsquerdo.run(FORWARD);
-  motorDireito.run(BACKWARD);
-  delay(1000);
-  motorEsquerdo.run(FORWARD);
-  motorDireito.run(FORWARD);
-  delay(300);
-  } else {
-  motorEsquerdo.run(FORWARD);
-  motorDireito.run(FORWARD);
-  delay(200);
-  }
 
 }
 void becoVerde(){  

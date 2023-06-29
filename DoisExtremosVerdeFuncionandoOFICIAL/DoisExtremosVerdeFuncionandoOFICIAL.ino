@@ -32,8 +32,8 @@ void setup() {
   // put your setup code here, to run once:
 
   //Seta a velocidade inicial do motor
-  motorEsquerdo.setSpeed(240); // Motor Esquerdo
-  motorDireito.setSpeed(240); // Motor Direita
+  motorEsquerdo.setSpeed(225); // Motor Esquerdo
+  motorDireito.setSpeed(225); // Motor Direita
   Serial.begin(9600); // Chama o Monitor Serial
   pinMode(2, INPUT);
 
@@ -59,11 +59,11 @@ void setup() {
 void loop() {
   color();
 
-  if (corVermelhoS1 > 25 && corAzulS1 > 28 && corVerdeS1 > 22) {
+  if (corVermelhoS1 > 25 && corVerdeS1 > 25 && corAzulS1 > 25) {
     direitaVerde();  
-  }else if (corVermelhoS2 > 110 && corAzulS2 > 95 && corVerdeS2 > 100){
+  }else if (corVermelhoS2 > 110){
     esquerdaVerde();
-  }else if (corVermelhoS1 > 25 && corAzulS1 > 28 && corVerdeS1 > 22 && corVermelhoS2 > 110 && corAzulS2 > 95 && corVerdeS2 > 100){
+  }else if (corVermelhoS2 > 110 && corVermelhoS2 > 110){
     becoVerde();
   }else{
     seguidordeLinha();
@@ -118,9 +118,9 @@ void direitaVerde(){
   int rightSensor = analogRead(A10); //sensor direito
   int valorSensor = 200;
   int valorSensorEsq = 100;
-  motorEsquerdo.run(FORWARD);
-  motorDireito.run(BACKWARD);
-  delay(1000);
+  motorEsquerdo.run(BACKWARD);
+  motorDireito.run(FORWARD);
+  delay(900);
   motorEsquerdo.run(FORWARD);
   motorDireito.run(FORWARD);
   delay(200);
@@ -132,10 +132,9 @@ void esquerdaVerde(){
   int rightSensor = analogRead(A10); //sensor direito
   int valorSensor = 200;
   int valorSensorEsq = 100;
-  motorEsquerdo.setSpeed(255);
-  motorEsquerdo.run(BACKWARD);
-  motorDireito.run(FORWARD);
-  delay(1100);
+  motorEsquerdo.run(FORWARD);
+  motorDireito.run(BACKWARD);
+  delay(900);
   motorEsquerdo.run(FORWARD);
   motorDireito.run(FORWARD);
   delay(200);
