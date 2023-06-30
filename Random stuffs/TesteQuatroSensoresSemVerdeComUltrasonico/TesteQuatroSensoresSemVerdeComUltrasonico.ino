@@ -6,8 +6,8 @@ AF_DCMotor motorDireito(4);   // Motor Direito conectado ao pino 2
 
 #define sensorEsquerdo A10
 #define sensorDireito A15
-#define sensorExtremoEsquerdo A8
-#define sensorExtremoDireito A9
+#define sensorExtremoEsquerdo A9
+#define sensorExtremoDireito A13
 
 #define LIMIAR 140       // Limiar para detecção da linha preta
 #define DISTANCIA_OBSTACULO_MIN 1 // Distância mínima para identificar obstáculo
