@@ -59,12 +59,19 @@ void setup() {
 void loop() {
   color();
 
+    else if (green < red && green < blue)  
+  {  
+   Serial.println("Verde");  
+   digitalWrite(pinoledverm, LOW);  
+   digitalWrite(pinoledverd, HIGH); //Acende o led verde  
+   digitalWrite(pinoledazul, LOW);  
+  }  
 
-  if (corVermelhoS1 > 25 && corVerdeS1 > 25 && corAzulS1 > 25) {
+  if (corVerdeS1 < corVermelhoS1 && corVerdeS1 < corAzulS1) {
     direitaVerde();  
-  }else if (corVermelhoS2 > 110){
+  }else if (corVerdeS2 < corVermelhoS2 && corVerdeS2 < corAzulS1){
     esquerdaVerde();
-  }else if (corVermelhoS2 > 110 && corVermelhoS2 > 110){
+  }else if (corVerdeS1 < corVermelhoS1 && corVerdeS1 < corAzulS1 && corVerdeS2 < corVermelhoS2 && corVerdeS2 < corAzulS1){
     becoVerde();
   }else{
     seguidordeLinha();
@@ -115,10 +122,6 @@ void seguidordeLinha(){
 }
 
 void direitaVerde(){
-  int leftSensor = analogRead(A15); //sensor esquerdo
-  int rightSensor = analogRead(A10); //sensor direito
-  int valorSensor = 200;
-  int valorSensorEsq = 100;
   motorEsquerdo.run(BACKWARD);
   motorDireito.run(FORWARD);
   delay(900);
@@ -129,10 +132,6 @@ void direitaVerde(){
   }
   
 void esquerdaVerde(){
-  int leftSensor = analogRead(A15); //sensor esquerdo
-  int rightSensor = analogRead(A10); //sensor direito
-  int valorSensor = 200;
-  int valorSensorEsq = 100;
   motorEsquerdo.run(FORWARD);
   motorDireito.run(BACKWARD);
   delay(900);
@@ -142,10 +141,6 @@ void esquerdaVerde(){
   }
 
 void becoVerde(){  
-  int leftSensor = analogRead(A15); //sensor esquerdo
-  int rightSensor = analogRead(A10); //sensor direito
-  int valorSensor = 200;
-  int valorSensorEsq = 100;
   motorEsquerdo.run(FORWARD);
   motorDireito.run(BACKWARD);
   delay(4000);
